@@ -1,0 +1,63 @@
+{
+    "template": "mlog*",
+    "settings": {
+        "index.refresh_interval": "60s",
+        "index.number_of_shards": 3,
+        "index.number_of_replicas": 1
+    },
+    "mappings": {
+        "_default_": {
+            "_all": {
+                "store": "false"
+            }
+        },
+        "mlog": {
+            "dynamic": true,
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "behavior": {
+                    "type": "integer"
+                },
+                "file_path": {
+                    "type": "keyword",
+                    "doc_values": false
+                },
+                "file_size": {
+                    "type": "integer",
+                    "doc_values": false
+                },
+                "lang": {
+                    "type": "keyword",
+                    "doc_values": false
+                },
+                "level": {
+                    "type": "integer"
+                },
+                "pkg_name": {
+                    "type": "keyword"
+                },
+                "sha1": {
+                    "type": "keyword"
+                },
+                "timestamp": {
+                    "type": "date",
+                    "format": "yyyy-MM-dd HH:mm:ss"
+                },
+                "imei": {
+                    "type": "keyword"
+                },
+                "manufacturer": {
+                    "type": "keyword"
+                },
+                "model": {
+                    "type": "keyword"
+                },
+                "client_ip": {
+                    "type": "ip"
+                }
+            }
+        }
+    }
+}
